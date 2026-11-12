@@ -39,22 +39,20 @@ header{position:sticky;top:0;z-index:30;background:rgba(13,13,12,.82);backdrop-f
 .lang button.on{background:var(--ink);color:#0d0d0c}
 @media(max-width:600px){.bar .btn{display:none}}
 
-.hero{position:relative;overflow:hidden;min-height:min(92svh,880px);display:grid;align-items:end;justify-items:center;text-align:center;isolation:isolate;padding-block:0 clamp(40px,6vw,72px)}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;z-index:-2;transform:scale(1.08);animation:kb 16s cubic-bezier(.2,.7,.2,1) forwards}
+.hero{position:relative;text-align:center;padding:0 0 clamp(44px,6vw,72px);background:var(--bg)}
+.hero-media{position:relative;overflow:hidden;height:min(calc(100vw*678/1206),78svh)}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,12,0) 55%,var(--bg) 100%),radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(13,13,12,.55))}
+.hero-bg{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.12);animation:kb 18s cubic-bezier(.2,.7,.2,1) forwards;display:block}
 @keyframes kb{to{transform:scale(1)}}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,13,12,0) 35%,rgba(13,13,12,.55) 62%,rgba(13,13,12,.96) 100%)}
-.hero-c{display:flex;flex-direction:column;align-items:center;opacity:0;transform:translateY(24px);animation:rise 1s .3s cubic-bezier(.2,.8,.2,1) forwards}
+.hero-c{display:flex;flex-direction:column;align-items:center;margin-top:clamp(-70px,-5vw,-20px);position:relative;opacity:0;transform:translateY(24px);animation:rise 1s .4s cubic-bezier(.2,.8,.2,1) forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.hero .tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3vw,1.9rem);margin:0;color:var(--ink)}
+.hero .tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3.2vw,2.1rem);margin:0;color:var(--ink)}
 .hero p.sub{color:var(--ink2);max-width:48ch;margin:10px auto 0}
 .cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:26px}
-.rate{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);font-size:.85rem}
+.rate{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);font-size:.85rem}
 .rate b{font-family:var(--serif);font-size:1.25rem}.rate .s{color:var(--accent);letter-spacing:2px}
-@media(max-width:760px){.hero{min-height:0;display:block;padding:0 0 48px;background:var(--bg)}
-.hero-bg{position:relative;inset:auto;height:auto;aspect-ratio:1206/678;animation:none;transform:none}
-.hero::before{top:auto;height:60px;bottom:auto;top:calc(100vw*678/1206 - 60px);background:linear-gradient(180deg,rgba(13,13,12,0),var(--bg))}
-.hero-c{padding-top:26px}}
+@media(max-width:760px){.hero-c{margin-top:6px}}
 .trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 @media(max-width:760px){.trust{grid-template-columns:1fr 1fr}}
 .tr{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 16px;text-align:center}
@@ -169,7 +167,7 @@ section>.wrap{position:relative;z-index:1}
   <a class="btn main" target="_blank" rel="noopener" href="https://booksy.com/pl-pl/150332_barbershop-rustam_barber-shop_3_warszawa" data-i="book"></a>
 </div></header>
 
-<section class="hero" id="top"><img class="hero-bg" src="https://d375139ucebi94.cloudfront.net/region2/pl/150332/biz_photo/fb5784ee67d340b09baa59c5209f13-barbershop-rustam-biz-photo-43a6d1115d2a4ebbb81710c3da1d95-booksy.jpeg" alt="Barbershop Rustam"><div class="wrap hero-c">
+<section class="hero" id="top"><div class="hero-media"><img class="hero-bg" src="https://d375139ucebi94.cloudfront.net/region2/pl/150332/biz_photo/fb5784ee67d340b09baa59c5209f13-barbershop-rustam-biz-photo-43a6d1115d2a4ebbb81710c3da1d95-booksy.jpeg" alt="Barbershop Rustam"></div><div class="wrap hero-c">
   <h1 class="sr">Barbershop Rustam Warszawa</h1>
   <p class="tag" data-i="tag"></p>
   <p class="sub" data-i="sub"></p>
@@ -340,7 +338,7 @@ document.querySelectorAll("[data-c]").forEach(e=>cio.observe(e));
 // scroll: progress + parallax
 const prog=document.getElementById("prog"),hb=document.querySelector(".hero-bg"),sc=document.querySelector(".school"),lfs=[...document.querySelectorAll(".lf svg")],gimgs=[...document.querySelectorAll(".gal img")];
 let tick=false;function onS(){if(tick)return;tick=true;requestAnimationFrame(()=>{const y=scrollY,H=document.documentElement.scrollHeight-innerHeight;prog.style.transform=`scaleX(${H>0?y/H:0})`;
-if(hb&&matchMedia("(min-width:761px)").matches&&y<innerHeight*1.2)hb.style.transform=`scale(1.08) translateY(${y*.25}px)`;
+if(hb&&y<innerHeight*1.2&&y>0){hb.style.animation="none";hb.style.transform=`scale(1.02) translateY(${y*.22}px)`}
 const vh=innerHeight;const par=(el,k)=>{const r=el.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;el.style.setProperty("--py",((r.top+r.height/2-vh/2)*k).toFixed(1)+"px")};
 lfs.forEach(s=>par(s,-.12));gimgs.forEach(s=>par(s,-.05));if(sc)par(sc,-.08);tick=false})}
 addEventListener("scroll",onS,{passive:true});onS();
