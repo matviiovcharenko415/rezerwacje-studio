@@ -104,8 +104,8 @@ td.r b{color:var(--accent)}
 .rv small{color:var(--muted);font-size:.82rem}
 
 .school{position:relative;overflow:hidden;isolation:isolate;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-radius:24px;padding:clamp(28px,5vw,56px);background:#111a14}
-.school::before{content:"";position:absolute;inset:-10%;z-index:-2;background:url("https://d375139ucebi94.cloudfront.net/region2/pl/150332/biz_photo/fb5784ee67d340b09baa59c5209f13-barbershop-rustam-biz-photo-43a6d1115d2a4ebbb81710c3da1d95-booksy.jpeg") 0% 50%/cover;filter:saturate(.9);transform:translateY(var(--py,0px))}
-.school::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(13,20,15,.92) 30%,rgba(13,20,15,.55))}
+.school::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse at 85% 50%,#2c4a35,#121b15 70%)}
+.school::after{display:none}.school .leafs{z-index:-1}
 .school h3{font-size:clamp(1.5rem,3.4vw,2.2rem)}.school p{color:#d6dccf;margin:8px 0 0;max-width:52ch}
 
 .ct{display:grid;grid-template-columns:1.1fr .9fr;gap:30px}
@@ -214,7 +214,7 @@ section>.wrap{position:relative;z-index:1}
   </div>
 </div></section>
 
-<section style="padding-top:0"><div class="wrap"><div class="school reveal">
+<section style="padding-top:0"><div class="wrap"><div class="school reveal"><div class="leafs" aria-hidden="true"><i class="lf" style="top:-40px;right:12%;--s:160px;--r:200deg;--o:.55;--d:10s"><svg viewBox="0 0 100 160" fill="currentColor"><path d="M50 4C20 34 8 70 14 104c5 28 22 46 36 52 14-6 31-24 36-52C92 70 80 34 50 4z" opacity=".95"/><path d="M50 18v138M50 52 28 36M50 52l22-16M50 80 22 60M50 80l28-20M50 108 24 90M50 108l26-18" stroke="#0d0d0c" stroke-width="2.4" fill="none" opacity=".55"/></svg></i><i class="lf" style="bottom:-60px;right:-20px;--s:200px;--r:-30deg;--o:.45;--d:12s"><svg viewBox="0 0 100 160" fill="currentColor"><path d="M50 4C20 34 8 70 14 104c5 28 22 46 36 52 14-6 31-24 36-52C92 70 80 34 50 4z" opacity=".95"/><path d="M50 18v138M50 52 28 36M50 52l22-16M50 80 22 60M50 80l28-20M50 108 24 90M50 108l26-18" stroke="#0d0d0c" stroke-width="2.4" fill="none" opacity=".55"/></svg></i><i class="lf" style="top:20%;right:28%;--s:80px;--r:60deg;--o:.35;--d:8s"><svg viewBox="0 0 100 160" fill="currentColor"><path d="M50 4C20 34 8 70 14 104c5 28 22 46 36 52 14-6 31-24 36-52C92 70 80 34 50 4z" opacity=".95"/><path d="M50 18v138M50 52 28 36M50 52l22-16M50 80 22 60M50 80l28-20M50 108 24 90M50 108l26-18" stroke="#0d0d0c" stroke-width="2.4" fill="none" opacity=".55"/></svg></i></div>
   <div><span class="label" data-i="sc_label"></span><h3 data-i="sc_h"></h3><p data-i="sc_p"></p></div>
   <a class="btn main" target="_blank" rel="noopener" href="https://barberschoolrustam.booksy.com/" data-i="sc_btn"></a>
 </div></div></section>
